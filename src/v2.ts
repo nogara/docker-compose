@@ -207,6 +207,10 @@ export const execCompose = (
     const env = options.env || undefined
     const executablePath = options.executablePath || 'docker'
 
+    const commandString = `${executablePath} compose ${composeArgs.join(' ')}`
+
+    console.log('Executing command:', commandString)
+
     const childProc = childProcess.spawn(
       executablePath,
       ['compose', ...composeArgs],
